@@ -1,0 +1,1 @@
+New MongoDbCore technology from Flash Gordon's adventure planet.
