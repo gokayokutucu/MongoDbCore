@@ -1,0 +1,11 @@
+/Users/gokayokutucu/Projects/PlayGround/MongoDbContext/Planet.MongoDbConsoleAppSample/bin/Debug/netcoreapp3.1/Planet.MongoDbConsoleAppSample
+/Users/gokayokutucu/Projects/PlayGround/MongoDbContext/Planet.MongoDbConsoleAppSample/bin/Debug/netcoreapp3.1/Planet.MongoDbConsoleAppSample.deps.json
+/Users/gokayokutucu/Projects/PlayGround/MongoDbContext/Planet.MongoDbConsoleAppSample/bin/Debug/netcoreapp3.1/Planet.MongoDbConsoleAppSample.runtimeconfig.json
+/Users/gokayokutucu/Projects/PlayGround/MongoDbContext/Planet.MongoDbConsoleAppSample/bin/Debug/netcoreapp3.1/Planet.MongoDbConsoleAppSample.runtimeconfig.dev.json
+/Users/gokayokutucu/Projects/PlayGround/MongoDbContext/Planet.MongoDbConsoleAppSample/bin/Debug/netcoreapp3.1/Planet.MongoDbConsoleAppSample.dll
+/Users/gokayokutucu/Projects/PlayGround/MongoDbContext/Planet.MongoDbConsoleAppSample/bin/Debug/netcoreapp3.1/Planet.MongoDbConsoleAppSample.pdb
+/Users/gokayokutucu/Projects/PlayGround/MongoDbContext/Planet.MongoDbConsoleAppSample/obj/Debug/netcoreapp3.1/Planet.MongoDbConsoleAppSample.csprojAssemblyReference.cache
+/Users/gokayokutucu/Projects/PlayGround/MongoDbContext/Planet.MongoDbConsoleAppSample/obj/Debug/netcoreapp3.1/Planet.MongoDbConsoleAppSample.AssemblyInfoInputs.cache
+/Users/gokayokutucu/Projects/PlayGround/MongoDbContext/Planet.MongoDbConsoleAppSample/obj/Debug/netcoreapp3.1/Planet.MongoDbConsoleAppSample.AssemblyInfo.cs
+/Users/gokayokutucu/Projects/PlayGround/MongoDbContext/Planet.MongoDbConsoleAppSample/obj/Debug/netcoreapp3.1/Planet.MongoDbConsoleAppSample.dll
+/Users/gokayokutucu/Projects/PlayGround/MongoDbContext/Planet.MongoDbConsoleAppSample/obj/Debug/netcoreapp3.1/Planet.MongoDbConsoleAppSample.pdb
