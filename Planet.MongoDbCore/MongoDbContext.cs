@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using MongoDB.Driver;
+using Planet.MongoDbCore.Extensions;
 
 namespace Planet.MongoDbCore {
     public abstract class MongoDbContext {
@@ -37,6 +38,10 @@ namespace Planet.MongoDbCore {
             if (options.Url != null)
                 return new MongoClient (options.Url);
             return new MongoClient (options.Settings);
+        }
+
+        public IMongoCollection<TEntity> GetCollection<TEntity> () {
+            return _database.GetCollection<TEntity> (typeof (TEntity).GetCollectionName ());
         }
 
         internal class MongoClientOptions {
