@@ -27,7 +27,11 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "projectReferences": {}
+            "projectReferences": {
+              "/Users/gokayokutucu/Projects/PlayGround/MongoDbContext/Planet.MongoDbCore/Planet.MongoDbCore.csproj": {
+                "projectPath": "/Users/gokayokutucu/Projects/PlayGround/MongoDbContext/Planet.MongoDbCore/Planet.MongoDbCore.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -38,6 +42,32 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            },
+            "MongoDB.Entities": {
+              "target": "Package",
+              "version": "[11.7.1, )"
+            },
+            "MongoDb.Bson": {
+              "target": "Package",
+              "version": "[2.10.2, )"
+            },
+            "MongoDb.Driver": {
+              "target": "Package",
+              "version": "[2.10.2, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -50,6 +80,69 @@
           "warn": true,
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.101/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/gokayokutucu/Projects/PlayGround/MongoDbContext/Planet.MongoDbCore/Planet.MongoDbCore.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/gokayokutucu/Projects/PlayGround/MongoDbContext/Planet.MongoDbCore/Planet.MongoDbCore.csproj",
+        "projectName": "Planet.MongoDbCore",
+        "projectPath": "/Users/gokayokutucu/Projects/PlayGround/MongoDbContext/Planet.MongoDbCore/Planet.MongoDbCore.csproj",
+        "packagesPath": "/Users/gokayokutucu/.nuget/packages/",
+        "outputPath": "/Users/gokayokutucu/Projects/PlayGround/MongoDbContext/Planet.MongoDbCore/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/Users/gokayokutucu/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "dependencies": {
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[2.10.2, )"
+            },
+            "PluralizeService.Core": {
+              "target": "Package",
+              "version": "[1.2.19339.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
               "privateAssets": "all"
             }
           },
