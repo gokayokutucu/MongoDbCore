@@ -5,7 +5,6 @@ using Planet.MongoDbCore.Extensions;
 
 namespace Planet.MongoDbCore {
     public abstract class MongoDbContext {
-
         protected IMongoDatabase _database;
         public MongoDbContext (string databaseName, string host = "localhost", int port = 27017) {
             Initialize (databaseName,
@@ -42,11 +41,6 @@ namespace Planet.MongoDbCore {
 
         public IMongoCollection<TEntity> GetCollection<TEntity> () {
             return _database.GetCollection<TEntity> (typeof (TEntity).GetCollectionName ());
-        }
-
-        internal class MongoClientOptions {
-            public MongoClientSettings Settings { get; set; }
-            public MongoUrl Url { get; set; }
         }
     }
 }
