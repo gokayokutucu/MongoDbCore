@@ -8,6 +8,7 @@ using MongoDB.Driver;
 using MongoDB.Driver.Linq;
 using Planet.MongoDbConsoleAppSample.BsonMaps;
 using Planet.MongoDbConsoleAppSample.Models;
+using Planet.MongoDbConsoleAppSample.SeedWork;
 using Planet.MongoDbCore;
 
 namespace Planet.MongoDbConsoleAppSample.Context {
@@ -70,10 +71,9 @@ namespace Planet.MongoDbConsoleAppSample.Context {
             return GetCollection<TEntity> ();
         }
 
-        public async Task<string> SaveAsync<TEntity> (TEntity entity, CancellationToken cancellationToken = default) where TEntity : Entity {
+        public async Task SaveAsync<TEntity> (TEntity entity, CancellationToken cancellationToken = default) where TEntity : Entity {
             try {
                 await GetCollection<TEntity> ().ReplaceOneAsync (r => r.Id.Equals (entity.Id), entity, new UpdateOptions () { IsUpsert = true }, cancellationToken);
-                return entity.Id;
             } catch (Exception ex) {
                 throw ex;
             }

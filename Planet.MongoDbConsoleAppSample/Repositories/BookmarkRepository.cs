@@ -22,13 +22,13 @@ namespace Planet.MongoDbConsoleAppSample.Repositories {
                 throw new ArgumentNullException (nameof (mediator));
         }
 
-        // public async Task<string> SaveAsync (Bookmark entity, CancellationToken cancellationToken = default) {
-        //     return await _context.CommitEntitiesAsync<Bookmark> (entity, cancellationToken);
-        // }
+        public async Task SaveAsync (Bookmark entity, CancellationToken cancellationToken = default) {
+            await _context.SaveAsync<Bookmark> (entity, cancellationToken);
+        }
 
-        // public async Task SaveAllAsync (IEnumerable<Bookmark> entities, CancellationToken cancellationToken = default) {
-        //     await _context.SaveAllAsync<Bookmark> (entities, cancellationToken);
-        // }
+        public async Task SaveAllAsync (IEnumerable<Bookmark> entities, CancellationToken cancellationToken = default) {
+            await _context.SaveAllAsync<Bookmark> (entities, cancellationToken);
+        }
 
         public async Task<bool> DeleteAsync (string id, CancellationToken cancellationToken = default) {
             return await _context.DeleteAsync<Bookmark> (id, cancellationToken);

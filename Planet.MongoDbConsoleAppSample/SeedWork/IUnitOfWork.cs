@@ -6,7 +6,7 @@ using Planet.MongoDbConsoleAppSample.Models;
 
 namespace Planet.MongoDbConsoleAppSample.SeedWork {
     public interface IUnitOfWork {
-        Task<string> SaveAsync<TEntity> (TEntity entity, CancellationToken cancellationToken = default) where TEntity : Entity; //For Mongo
+        Task SaveAsync<TEntity> (TEntity entity, CancellationToken cancellationToken = default) where TEntity : Entity; //For Mongo
         Task SaveAllAsync<TEntity> (IEnumerable<TEntity> entities, CancellationToken cancellationToken = default) where TEntity : Entity; //For Mongo
         Task SaveAllAsync<TEntity> (IEnumerable<TEntity> entities, InsertManyOptions insertManyOptions = null, CancellationToken cancellationToken = default) where TEntity : Entity; //For Mongo
         Task CommitEntitiesAsync<TEntity> (List<TEntity> entities, CancellationToken cancellationToken = default) where TEntity : Entity; //For Mongo
