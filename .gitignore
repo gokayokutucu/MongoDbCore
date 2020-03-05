@@ -3,4 +3,3 @@
 *.nuspec
 Planet.MongoDbCore/bin/Debug/Planet.MongoDbCore.1.0.0.nupkg
 Planet.MongoDbCore/obj/Debug/Planet.MongoDbCore.1.0.0.nuspec
-obj/Debug/Planet.MongoDbCore.1.0.0.nuspec
