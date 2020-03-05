@@ -32,8 +32,8 @@ namespace Planet.MongoDbConsoleAppSample.Models {
             CreatedDate = DateTime.UtcNow;
         }
 
-        public void AddImage (string fileName, string url, string bookmarkId) {
-            var image = new Image (fileName, url, bookmarkId);
+        public void AddImage (string fileName, string url, string bookmarkId, string createdBy) {
+            var image = new Image (fileName, url, bookmarkId, createdBy);
             _images.Add (image);
         }
 

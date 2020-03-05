@@ -6,10 +6,11 @@ namespace Planet.MongoDbConsoleAppSample.Models {
             IsDeleted = false;
         }
 
-        public Image (string fileName, string url, string bookmarkId) {
+        public Image (string fileName, string url, string bookmarkId, string createdBy) {
             FileName = fileName;
             Url = url;
             BookmarkId = bookmarkId;
+            CreatedBy = createdBy;
             CreatedDate = DateTime.UtcNow;
             IsDeleted = false;
         }
