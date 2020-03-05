@@ -12,6 +12,7 @@ using Planet.MongoDbConsoleAppSample.AutoMapper;
 using Planet.MongoDbConsoleAppSample.Context;
 using Planet.MongoDbConsoleAppSample.Infrastructure;
 using Planet.MongoDbConsoleAppSample.Repositories;
+using Planet.MongoDbCore;
 
 namespace Planet.MongoDbConsoleAppSample {
     class Program {
@@ -36,9 +37,10 @@ namespace Planet.MongoDbConsoleAppSample {
                     services.AddMediatR (typeof (GetBookmarkListQueryHandler).GetTypeInfo ().Assembly);
 
                     // Add MongoDbCore
+                    var config = hostContext.Configuration.Get<MongoDbContextConfiguration> ();
                     services.AddSingleton<IBlincatMongoDbContext> (s =>
                         new BlincatMongoDbContext (
-                            "blincatmongo",
+                            config.DatabaseName,
                             s.GetService<IMediator> ()));
                     // services.AddMongoDbCore<IBlincatMongoDbContext, BlincatMongoDbContext> (options => {
                     //     options.DatabaseName = "blincatmongo";
