@@ -2,7 +2,7 @@
 
 New MongoDbCore technology similar to EntityFramework Context from Flash Gordon's adventure planet.
 
-## Install ![](https://img.shields.io/nuget/dt/Planet.MongoDbCore?style=plastic)
+## Install [![Nuget](https://img.shields.io/nuget/dt/Planet.MongoDbCore?style=plastic)
 
     dotnet add package Planet.MongoDbCore
 
