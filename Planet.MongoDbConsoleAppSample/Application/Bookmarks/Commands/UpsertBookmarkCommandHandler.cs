@@ -29,11 +29,11 @@ namespace Planet.MongoDbConsoleAppSample.Application.Bookmarks.Commands {
                 entity.Title = request.Title;
             }
             request.Images?.ForEach (o => entity.AddImage (o.FileName, o.Url, o.BookmarkId, "createdBy_bbe4k56sslf56jll43ls0"));
-            var entityId = await _bookmarkRepository.UnitOfWork.SaveAsync (entity, cancellationToken);
+            await _bookmarkRepository.UnitOfWork.SaveAsync (entity, cancellationToken);
 
             await _mediator.Publish (new BookmarkCreated { BookmarkId = entity.Id }, cancellationToken);
 
-            return entityId;
+            return entity.Id;
         }
     }
 }
