@@ -14,7 +14,7 @@
           "Microsoft.Extensions.Configuration.Json": "3.1.2",
           "Microsoft.Extensions.DependencyInjection": "3.1.2",
           "MongoDB.Driver": "2.10.2",
-          "PluralizeService.Core": "1.2.19339.3"
+          "PluralizeService.Core": "1.2.1"
         },
         "runtime": {
           "Planet.MongoDbCore.dll": {}
@@ -297,7 +297,7 @@
           "System.Xml.XDocument": "4.3.0"
         }
       },
-      "PluralizeService.Core/1.2.19339.3": {
+      "PluralizeService.Core/1.2.1": {
         "runtime": {
           "lib/netstandard2.1/PluralizeService.Core.dll": {
             "assemblyVersion": "1.2.0.0",
@@ -1623,12 +1623,12 @@
       "path": "netstandard.library/1.6.1",
       "hashPath": "netstandard.library.1.6.1.nupkg.sha512"
     },
-    "PluralizeService.Core/1.2.19339.3": {
+    "PluralizeService.Core/1.2.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-E1dxS8G0Ig79XiRo/HtpM2r6wOXfc6hI2tLzX9w3HvBtJtq/9E8NwWoTCSzq132etG3OXmf9TzGSJgtuE9aKDw==",
-      "path": "pluralizeservice.core/1.2.19339.3",
-      "hashPath": "pluralizeservice.core.1.2.19339.3.nupkg.sha512"
+      "sha512": "sha512-z1nGu3yL0d3qIiXUVYNrY905V8irniiPTh89iBP+RO5cdDFheR0SAjGRULjsvgyOS9Hg349fOjGNivcQBmru2g==",
+      "path": "pluralizeservice.core/1.2.1",
+      "hashPath": "pluralizeservice.core.1.2.1.nupkg.sha512"
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {
       "type": "package",

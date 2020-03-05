@@ -6,3 +6,11 @@
 /Users/gokayokutucu/Projects/PlayGround/MongoDbContext/Planet.MongoDbCore/obj/Debug/netstandard2.1/Planet.MongoDbCore.AssemblyInfo.cs
 /Users/gokayokutucu/Projects/PlayGround/MongoDbContext/Planet.MongoDbCore/obj/Debug/netstandard2.1/Planet.MongoDbCore.dll
 /Users/gokayokutucu/Projects/PlayGround/MongoDbContext/Planet.MongoDbCore/obj/Debug/netstandard2.1/Planet.MongoDbCore.pdb
+/Users/gokayokutucu/Projects/PlayGround/MongoDbCore/Planet.MongoDbCore/bin/Debug/netstandard2.1/Planet.MongoDbCore.deps.json
+/Users/gokayokutucu/Projects/PlayGround/MongoDbCore/Planet.MongoDbCore/bin/Debug/netstandard2.1/Planet.MongoDbCore.dll
+/Users/gokayokutucu/Projects/PlayGround/MongoDbCore/Planet.MongoDbCore/bin/Debug/netstandard2.1/Planet.MongoDbCore.pdb
+/Users/gokayokutucu/Projects/PlayGround/MongoDbCore/Planet.MongoDbCore/obj/Debug/netstandard2.1/Planet.MongoDbCore.csprojAssemblyReference.cache
+/Users/gokayokutucu/Projects/PlayGround/MongoDbCore/Planet.MongoDbCore/obj/Debug/netstandard2.1/Planet.MongoDbCore.AssemblyInfoInputs.cache
+/Users/gokayokutucu/Projects/PlayGround/MongoDbCore/Planet.MongoDbCore/obj/Debug/netstandard2.1/Planet.MongoDbCore.AssemblyInfo.cs
+/Users/gokayokutucu/Projects/PlayGround/MongoDbCore/Planet.MongoDbCore/obj/Debug/netstandard2.1/Planet.MongoDbCore.dll
+/Users/gokayokutucu/Projects/PlayGround/MongoDbCore/Planet.MongoDbCore/obj/Debug/netstandard2.1/Planet.MongoDbCore.pdb

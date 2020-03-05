@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/gokayokutucu/Projects/PlayGround/MongoDbContext/Planet.MongoDbCore/Planet.MongoDbCore.csproj": {}
+    "/Users/gokayokutucu/Projects/PlayGround/MongoDbCore/Planet.MongoDbCore/Planet.MongoDbCore.csproj": {}
   },
   "projects": {
-    "/Users/gokayokutucu/Projects/PlayGround/MongoDbContext/Planet.MongoDbCore/Planet.MongoDbCore.csproj": {
+    "/Users/gokayokutucu/Projects/PlayGround/MongoDbCore/Planet.MongoDbCore/Planet.MongoDbCore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/gokayokutucu/Projects/PlayGround/MongoDbContext/Planet.MongoDbCore/Planet.MongoDbCore.csproj",
+        "projectUniqueName": "/Users/gokayokutucu/Projects/PlayGround/MongoDbCore/Planet.MongoDbCore/Planet.MongoDbCore.csproj",
         "projectName": "Planet.MongoDbCore",
-        "projectPath": "/Users/gokayokutucu/Projects/PlayGround/MongoDbContext/Planet.MongoDbCore/Planet.MongoDbCore.csproj",
+        "projectPath": "/Users/gokayokutucu/Projects/PlayGround/MongoDbCore/Planet.MongoDbCore/Planet.MongoDbCore.csproj",
         "packagesPath": "/Users/gokayokutucu/.nuget/packages/",
-        "outputPath": "/Users/gokayokutucu/Projects/PlayGround/MongoDbContext/Planet.MongoDbCore/obj/",
+        "outputPath": "/Users/gokayokutucu/Projects/PlayGround/MongoDbCore/Planet.MongoDbCore/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
@@ -61,7 +61,7 @@
             },
             "PluralizeService.Core": {
               "target": "Package",
-              "version": "[1.2.19339.3, )"
+              "version": "[1.2.1, )"
             }
           },
           "imports": [

@@ -7407,11 +7407,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/gokayokutucu/Projects/PlayGround/MongoDbContext/Planet.MongoDbConsoleAppSample/Planet.MongoDbConsoleAppSample.csproj",
+      "projectUniqueName": "/Users/gokayokutucu/Projects/PlayGround/MongoDbCore/Planet.MongoDbConsoleAppSample/Planet.MongoDbConsoleAppSample.csproj",
       "projectName": "Planet.MongoDbConsoleAppSample",
-      "projectPath": "/Users/gokayokutucu/Projects/PlayGround/MongoDbContext/Planet.MongoDbConsoleAppSample/Planet.MongoDbConsoleAppSample.csproj",
+      "projectPath": "/Users/gokayokutucu/Projects/PlayGround/MongoDbCore/Planet.MongoDbConsoleAppSample/Planet.MongoDbConsoleAppSample.csproj",
       "packagesPath": "/Users/gokayokutucu/.nuget/packages/",
-      "outputPath": "/Users/gokayokutucu/Projects/PlayGround/MongoDbContext/Planet.MongoDbConsoleAppSample/obj/",
+      "outputPath": "/Users/gokayokutucu/Projects/PlayGround/MongoDbCore/Planet.MongoDbConsoleAppSample/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
@@ -7428,8 +7428,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "/Users/gokayokutucu/Projects/PlayGround/MongoDbContext/Planet.MongoDbCore/Planet.MongoDbCore.csproj": {
-              "projectPath": "/Users/gokayokutucu/Projects/PlayGround/MongoDbContext/Planet.MongoDbCore/Planet.MongoDbCore.csproj"
+            "/Users/gokayokutucu/Projects/PlayGround/MongoDbCore/Planet.MongoDbCore/Planet.MongoDbCore.csproj": {
+              "projectPath": "/Users/gokayokutucu/Projects/PlayGround/MongoDbCore/Planet.MongoDbCore/Planet.MongoDbCore.csproj"
             }
           }
         }

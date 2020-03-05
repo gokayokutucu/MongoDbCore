@@ -334,7 +334,7 @@
           "System.Xml.XDocument": "4.3.0"
         }
       },
-      "PluralizeService.Core/1.2.19339.3": {
+      "PluralizeService.Core/1.2.1": {
         "type": "package",
         "compile": {
           "lib/netstandard2.1/PluralizeService.Core.dll": {}
@@ -2383,15 +2383,15 @@
         "netstandard.library.nuspec"
       ]
     },
-    "PluralizeService.Core/1.2.19339.3": {
-      "sha512": "E1dxS8G0Ig79XiRo/HtpM2r6wOXfc6hI2tLzX9w3HvBtJtq/9E8NwWoTCSzq132etG3OXmf9TzGSJgtuE9aKDw==",
+    "PluralizeService.Core/1.2.1": {
+      "sha512": "z1nGu3yL0d3qIiXUVYNrY905V8irniiPTh89iBP+RO5cdDFheR0SAjGRULjsvgyOS9Hg349fOjGNivcQBmru2g==",
       "type": "package",
-      "path": "pluralizeservice.core/1.2.19339.3",
+      "path": "pluralizeservice.core/1.2.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/netstandard2.1/PluralizeService.Core.dll",
-        "pluralizeservice.core.1.2.19339.3.nupkg.sha512",
+        "pluralizeservice.core.1.2.1.nupkg.sha512",
         "pluralizeservice.core.nuspec"
       ]
     },
@@ -6670,7 +6670,7 @@
       "Microsoft.Extensions.Configuration.Json >= 3.1.2",
       "Microsoft.Extensions.DependencyInjection >= 3.1.2",
       "MongoDB.Driver >= 2.10.2",
-      "PluralizeService.Core >= 1.2.19339.3"
+      "PluralizeService.Core >= 1.2.1"
     ]
   },
   "packageFolders": {
@@ -6680,11 +6680,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/gokayokutucu/Projects/PlayGround/MongoDbContext/Planet.MongoDbCore/Planet.MongoDbCore.csproj",
+      "projectUniqueName": "/Users/gokayokutucu/Projects/PlayGround/MongoDbCore/Planet.MongoDbCore/Planet.MongoDbCore.csproj",
       "projectName": "Planet.MongoDbCore",
-      "projectPath": "/Users/gokayokutucu/Projects/PlayGround/MongoDbContext/Planet.MongoDbCore/Planet.MongoDbCore.csproj",
+      "projectPath": "/Users/gokayokutucu/Projects/PlayGround/MongoDbCore/Planet.MongoDbCore/Planet.MongoDbCore.csproj",
       "packagesPath": "/Users/gokayokutucu/.nuget/packages/",
-      "outputPath": "/Users/gokayokutucu/Projects/PlayGround/MongoDbContext/Planet.MongoDbCore/obj/",
+      "outputPath": "/Users/gokayokutucu/Projects/PlayGround/MongoDbCore/Planet.MongoDbCore/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
@@ -6734,7 +6734,7 @@
           },
           "PluralizeService.Core": {
             "target": "Package",
-            "version": "[1.2.19339.3, )"
+            "version": "[1.2.1, )"
           }
         },
         "imports": [
