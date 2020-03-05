@@ -1,13 +1,8 @@
-New MongoDbCore technology from Flash Gordon's adventure planet.
+### Planet.MongoDbCore
 
-### Nuget
+New MongoDbCore technology similar to EntityFramework Context from Flash Gordon's adventure planet.
 
-| | |
-|-|-|
-| downloads | ![](https://img.shields.io/nuget/dt/Planet.MongoDbCore) |
-| stable | ![](https://img.shields.io/nuget/v/Planet.MongoDbCore) |
-
-## Install
+## Install ![](https://img.shields.io/nuget/dt/Planet.MongoDbCore?style=plastic)
 
     dotnet add package Planet.MongoDbCore
 
