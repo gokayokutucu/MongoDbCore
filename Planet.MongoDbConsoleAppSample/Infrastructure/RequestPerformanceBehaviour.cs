@@ -27,7 +27,7 @@ namespace Planet.MongoDbConsoleAppSample.Infrastructure {
 
                 // TODO: Add User Details
 
-                _logger.LogWarning ("Northwind Long Running Request: {Name} ({ElapsedMilliseconds} milliseconds) {@Request}", name, _timer.ElapsedMilliseconds, request);
+                _logger.LogWarning ("Blincat Long Running Request: {Name} ({ElapsedMilliseconds} milliseconds) {@Request}", name, _timer.ElapsedMilliseconds, request);
             }
 
             return response;
