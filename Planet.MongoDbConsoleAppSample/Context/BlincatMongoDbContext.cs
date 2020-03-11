@@ -68,7 +68,7 @@ namespace Planet.MongoDbConsoleAppSample.Context {
 
         public IMongoCollection<TEntity> GetCollection<TEntity> (CancellationToken cancellationToken = default) where TEntity : Entity {
             cancellationToken.ThrowIfCancellationRequested ();
-            return GetCollection<TEntity> ();
+            return base.GetCollection<TEntity> ();
         }
 
         public async Task SaveAsync<TEntity> (TEntity entity, CancellationToken cancellationToken = default) where TEntity : Entity {
