@@ -73,7 +73,7 @@ namespace Planet.MongoDbConsoleAppSample.Context {
 
         public async Task SaveAsync<TEntity> (TEntity entity, CancellationToken cancellationToken = default) where TEntity : Entity {
             try {
-                await GetCollection<TEntity> ().ReplaceOneAsync (r => r.Id.Equals (entity.Id), entity, new UpdateOptions () { IsUpsert = true }, cancellationToken);
+                await GetCollection<TEntity> ().ReplaceOneAsync (r => r.Id.Equals (entity.Id), entity, new ReplaceOptions () { IsUpsert = true }, cancellationToken);
             } catch (Exception ex) {
                 throw ex;
             }
@@ -90,7 +90,7 @@ namespace Planet.MongoDbConsoleAppSample.Context {
             try {
                 var collection = GetCollection<TEntity> ();
                 foreach (var entity in entities) {
-                    await collection.ReplaceOneAsync (r => r.Id.Equals (entity.Id), entity, new UpdateOptions () { IsUpsert = true }, cancellationToken);
+                    await collection.ReplaceOneAsync (r => r.Id.Equals (entity.Id), entity, new ReplaceOptions () { IsUpsert = true }, cancellationToken);
                 }
             } catch (Exception ex) {
                 throw ex;
