@@ -36,6 +36,10 @@ namespace Planet.MongoDbCore {
         }
         public string Url { get; set; }
 
+        public TService Build () {
+            return Build (null);
+        }
+
         public TService Build (IServiceProvider provider) {
             var dbContextName = DbContextType.FullName;
             var constructor = DbContextType
@@ -52,8 +56,10 @@ namespace Planet.MongoDbCore {
             foreach (var p in constructorParamsInfo) {
                 if (p.ParameterType == typeof (MongoDbContextOptions))
                     constratorParams[i] = dbContextOptions;
-                else
+                else if (provider != null)
                     constratorParams[i] = provider.GetService (p.ParameterType);
+                else
+                    throw new ArgumentNullException ("You should pass a provider or database context options");
                 i++;
             }
 
