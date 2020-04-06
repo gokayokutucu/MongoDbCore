@@ -8,7 +8,6 @@ using MongoDB.Driver;
 using MongoDB.Driver.Linq;
 using Planet.MongoDbConsoleAppSample.BsonMaps;
 using Planet.MongoDbConsoleAppSample.Models;
-using Planet.MongoDbConsoleAppSample.SeedWork;
 using Planet.MongoDbCore;
 
 namespace Planet.MongoDbConsoleAppSample.Context {
