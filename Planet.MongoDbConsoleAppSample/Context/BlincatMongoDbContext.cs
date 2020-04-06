@@ -43,27 +43,8 @@ namespace Planet.MongoDbConsoleAppSample.Context {
             return new MongoClient (options.Settings);
         }
 
-        private IMongoCollection<Bookmark> _bookmarks;
-        public IMongoCollection<Bookmark> Bookmarks {
-            get {
-                _bookmarks = GetCollection<Bookmark> ();
-                return _bookmarks;
-            }
-            private set {
-                _bookmarks = value;
-            }
-        }
-
-        private IMongoCollection<Image> _images;
-        public IMongoCollection<Image> Images {
-            get {
-                _images = GetCollection<Image> ();
-                return _images;
-            }
-            private set {
-                _images = value;
-            }
-        }
+        public IMongoCollection<Bookmark> Bookmarks => GetCollection<Bookmark> ();
+        public IMongoCollection<Image> Images => GetCollection<Image> ();
 
         public IMongoCollection<TEntity> GetCollection<TEntity> (CancellationToken cancellationToken = default) where TEntity : Entity {
             cancellationToken.ThrowIfCancellationRequested ();
