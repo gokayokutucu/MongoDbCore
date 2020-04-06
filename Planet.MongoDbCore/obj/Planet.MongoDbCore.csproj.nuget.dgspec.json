@@ -5,7 +5,7 @@
   },
   "projects": {
     "/Users/gokayokutucu/Projects/PlayGround/MongoDbCore/Planet.MongoDbCore/Planet.MongoDbCore.csproj": {
-      "version": "1.0.1",
+      "version": "1.0.2",
       "restore": {
         "projectUniqueName": "/Users/gokayokutucu/Projects/PlayGround/MongoDbCore/Planet.MongoDbCore/Planet.MongoDbCore.csproj",
         "projectName": "Planet.MongoDbCore",
