@@ -14,3 +14,4 @@
 /Users/gokayokutucu/Projects/PlayGround/MongoDbCore/Planet.MongoDbCore/obj/Debug/netstandard2.1/Planet.MongoDbCore.AssemblyInfo.cs
 /Users/gokayokutucu/Projects/PlayGround/MongoDbCore/Planet.MongoDbCore/obj/Debug/netstandard2.1/Planet.MongoDbCore.dll
 /Users/gokayokutucu/Projects/PlayGround/MongoDbCore/Planet.MongoDbCore/obj/Debug/netstandard2.1/Planet.MongoDbCore.pdb
+/Users/gokayokutucu/Projects/PlayGround/MongoDbCore/Planet.MongoDbCore/obj/Debug/netstandard2.1/Planet.MongoDbCore.csproj.CoreCompileInputs.cache

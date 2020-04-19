@@ -7,7 +7,7 @@
   "targets": {
     ".NETStandard,Version=v2.1": {},
     ".NETStandard,Version=v2.1/": {
-      "Planet.MongoDbCore/1.0.2": {
+      "Planet.MongoDbCore/1.0.3": {
         "dependencies": {
           "Microsoft.Extensions.Configuration": "3.1.2",
           "Microsoft.Extensions.Configuration.Binder": "3.1.2",
@@ -1464,7 +1464,7 @@
     }
   },
   "libraries": {
-    "Planet.MongoDbCore/1.0.2": {
+    "Planet.MongoDbCore/1.0.3": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
