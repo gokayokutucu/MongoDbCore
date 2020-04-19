@@ -38,11 +38,10 @@ namespace Planet.MongoDbConsoleAppSample {
                     services.AddMediatR (typeof (GetBookmarkListQueryHandler).GetTypeInfo ().Assembly);
 
                     // Add MongoDbCore
-                    var config = hostContext.Configuration.Get<MongoDbContextConfiguration> ();
                     services.AddSingleton<IBlincatMongoDbContext> (s =>
                         new BlincatMongoDbContext (
-                            config.DatabaseName,
-                            s.GetService<IMediator> ()));
+                            "blincatmongo",
+                            s.GetService<ILogger> ()));
                     // services.AddMongoDbCore<IBlincatMongoDbContext, BlincatMongoDbContext> (options => {
                     //     options.DatabaseName = "blincatmongo";
                     // });

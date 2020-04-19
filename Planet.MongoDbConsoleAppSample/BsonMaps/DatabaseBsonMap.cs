@@ -1,5 +1,6 @@
 using MongoDB.Bson.Serialization.Conventions;
 using Planet.MongoDbConsoleAppSample.Conventions;
+using Planet.MongoDbConsoleAppSample.Models;
 
 namespace Planet.MongoDbConsoleAppSample.BsonMaps {
     public static class DatabaseBsonMap {
@@ -14,7 +15,8 @@ namespace Planet.MongoDbConsoleAppSample.BsonMaps {
                 conventions,
                 _ => true);
 
-            BookmarkBsonMap.Map ();
+            EntityBaseBsonMap.Map ();
+            DocumentBsonMap<Bookmark>.Map ();
         }
     }
 }

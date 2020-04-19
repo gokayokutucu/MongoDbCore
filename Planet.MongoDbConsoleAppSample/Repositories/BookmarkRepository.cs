@@ -7,6 +7,7 @@ using MediatR;
 using MongoDB.Driver;
 using MongoDB.Driver.Linq;
 using Planet.MongoDbConsoleAppSample.Context;
+using Planet.MongoDbConsoleAppSample.Enums;
 using Planet.MongoDbConsoleAppSample.Models;
 using Planet.MongoDbConsoleAppSample.SeedWork;
 
@@ -26,8 +27,8 @@ namespace Planet.MongoDbConsoleAppSample.Repositories {
             await _context.SaveAsync<Bookmark> (entity, cancellationToken);
         }
 
-        public async Task SaveAllAsync (IEnumerable<Bookmark> entities, CancellationToken cancellationToken = default) {
-            await _context.SaveAllAsync<Bookmark> (entities, cancellationToken);
+        public async Task SaveAllAsync (IEnumerable<Bookmark> entities, RecordOption recordOption, CancellationToken cancellationToken = default) {
+            await _context.SaveAllAsync<Bookmark> (entities, recordOption, cancellationToken);
         }
 
         public async Task<bool> DeleteAsync (string id, CancellationToken cancellationToken = default) {
@@ -40,7 +41,7 @@ namespace Planet.MongoDbConsoleAppSample.Repositories {
 
         public IMongoQueryable<Bookmark> AllQueryable (AggregateOptions options = null, CancellationToken cancellationToken = default) {
             cancellationToken.ThrowIfCancellationRequested ();
-            return _context.GetCollection<Bookmark> ().AsQueryable (options);
+            return _context.AllQueryable<Bookmark> (options, cancellationToken);
         }
 
         public async Task<IEnumerable<Bookmark>> GetAllAsync (CancellationToken cancellationToken = default) {
@@ -64,10 +65,12 @@ namespace Planet.MongoDbConsoleAppSample.Repositories {
             return result;
         }
 
-        public async Task<int> Count (Expression<Func<Bookmark, bool>> prediction = null) {
-            if (prediction == null)
-                return await _context.AllQueryable<Bookmark> ().CountAsync ();
-            return await _context.AllQueryable<Bookmark> ().CountAsync (prediction);
+        public async Task<int> CountAsync (AggregateOptions options = null, Expression<Func<Bookmark, bool>> prediction = null, CancellationToken cancellationToken = default) {
+            return await _context.CountAsync (options, prediction, cancellationToken);
+        }
+
+        public async Task<bool> AnyAsync (AggregateOptions options = null, Expression<Func<Bookmark, bool>> prediction = null, CancellationToken cancellationToken = default) {
+            return await _context.AnyAsync (options, prediction, cancellationToken);
         }
     }
 }

@@ -2,7 +2,7 @@ using System;
 
 namespace Planet.MongoDbConsoleAppSample.Models {
     public abstract class Entity {
-        int? _requestedHashCode;
+        //int? _requestedHashCode;
         string _id;
         public virtual string Id {
             get {
@@ -33,8 +33,8 @@ namespace Planet.MongoDbConsoleAppSample.Models {
             }
         }
 
-        DateTime _createdDate;
-        public DateTime CreatedDate {
+        DateTime? _createdDate;
+        public Nullable<DateTime> CreatedDate {
             get {
                 return _createdDate;
             }

@@ -20,6 +20,9 @@ namespace Planet.MongoDbConsoleAppSample.Application.Bookmarks.Commands {
         }
 
         public async Task<string> Handle (UpsertBookmarkCommand request, CancellationToken cancellationToken) {
+
+            //var bookmarks = await _mediator.Send(new GetBookmarkListQuery(), cancellationToken);
+
             Bookmark entity;
             if (string.IsNullOrEmpty (request.Id)) {
                 entity = new Bookmark (request.Url, request.Title, "createdBy_bbe4k56sslf56jll43ls0",
@@ -31,7 +34,7 @@ namespace Planet.MongoDbConsoleAppSample.Application.Bookmarks.Commands {
             request.Images?.ForEach (o => entity.AddImage (o.FileName, o.Url, o.BookmarkId, "createdBy_bbe4k56sslf56jll43ls0"));
             await _bookmarkRepository.UnitOfWork.SaveAsync (entity, cancellationToken);
 
-            await _mediator.Publish (new BookmarkCreated { BookmarkId = entity.Id }, cancellationToken);
+            //await _mediator.Publish (new BookmarkCreated { BookmarkId = entity.Id }, cancellationToken);
 
             return entity.Id;
         }

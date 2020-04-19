@@ -1,46 +1,45 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
-using MediatR;
+using Microsoft.Extensions.Logging;
 using MongoDB.Driver;
 using MongoDB.Driver.Linq;
 using Planet.MongoDbConsoleAppSample.BsonMaps;
+using Planet.MongoDbConsoleAppSample.Configurations;
+using Planet.MongoDbConsoleAppSample.Enums;
 using Planet.MongoDbConsoleAppSample.Models;
 using Planet.MongoDbCore;
+using Planet.MongoDbCore.Linq;
 
 namespace Planet.MongoDbConsoleAppSample.Context {
     public class BlincatMongoDbContext : MongoDbContext, IBlincatMongoDbContext {
-        private static readonly object _initializationLock = new object ();
-        private IMediator _mediator;
-        public BlincatMongoDbContext (string databaseName, IMediator mediator, string host = "localhost", int port = 27017) : base (databaseName, host, port) {
-            _mediator = mediator ??
-                throw new ArgumentNullException (nameof (mediator));
+        private static readonly object InitializationLock = new object ();
+        private readonly ILogger _logger;
+        public BlincatMongoDbContext (string databaseName, ILogger logger, string host = "localhost", int port = 27017) : base (databaseName, host, port) {
+            _logger = logger;
         }
 
-        public BlincatMongoDbContext (string databaseName, IMediator mediator, string url) : base (databaseName, url) {
-            _mediator = mediator ??
-                throw new ArgumentNullException (nameof (mediator));
+        public BlincatMongoDbContext (string databaseName, ILogger logger, string url) : base (databaseName, url) {
+            _logger = logger;
         }
 
-        public BlincatMongoDbContext (MongoDbContextOptions options, IMediator mediator) : base (options) {
-            _mediator = mediator ??
-                throw new ArgumentNullException (nameof (mediator));
+        public BlincatMongoDbContext (ILogger logger, MongoDbContextOptions options) : base (options) {
+            _logger = logger;
         }
 
         protected override async Task ConfigurateAsync () {
-            lock (_initializationLock) {
+            lock (InitializationLock) {
                 DatabaseBsonMap.Map ();
             }
 
-            await IndexConfigurations.CreateAllIndexes (this).ConfigureAwait (false);
-        }
-
-        private MongoClient CreateClient (MongoClientOptions options) {
-            if (options.Url != null)
-                return new MongoClient (options.Url);
-            return new MongoClient (options.Settings);
+            try {
+                await IndexConfigurations<BlincatMongoDbContext>.CreateAllIndexes (this).ConfigureAwait (false);
+            } catch (Exception ex) {
+                _logger?.LogError (ex, $"Something wrong in ConfigurateAsync");
+            }
         }
 
         public IMongoCollection<Bookmark> Bookmarks => GetCollection<Bookmark> ();
@@ -54,8 +53,12 @@ namespace Planet.MongoDbConsoleAppSample.Context {
         public async Task SaveAsync<TEntity> (TEntity entity, CancellationToken cancellationToken = default) where TEntity : Entity {
             try {
                 await GetCollection<TEntity> ().ReplaceOneAsync (r => r.Id.Equals (entity.Id), entity, new ReplaceOptions () { IsUpsert = true }, cancellationToken);
+            } catch (TimeoutException ex) {
+                _logger?.LogError ($"Timeout Exception in SaveAsync method. Source: {ex.Source}");
+            } catch (MongoAuthenticationException ex) {
+                _logger?.LogError ($"Mongo Authentication Exception in SaveAsync method. Source: {ex.Source}");
             } catch (Exception ex) {
-                throw ex;
+                _logger?.LogError (ex, $"Entity Type: {typeof(TEntity)} | Entity ID:{entity.Id} - This record cannot be saved");
             }
         }
 
@@ -63,17 +66,47 @@ namespace Planet.MongoDbConsoleAppSample.Context {
         /// Insert or update all entities on database
         /// </summary>
         /// <param name="entities">Entity list model</param>
+        /// <param name="recordOption">Insert, update or upsert operation</param>
         /// <param name="cancellationToken">Token</param>
         /// <typeparam name="TEntity">Entity type</typeparam>
         /// <returns></returns>
-        public async Task SaveAllAsync<TEntity> (IEnumerable<TEntity> entities, CancellationToken cancellationToken = default) where TEntity : Entity {
+        public async Task SaveAllAsync<TEntity> (IEnumerable<TEntity> entities, RecordOption recordOption = RecordOption.Upsert, CancellationToken cancellationToken = default) where TEntity : Entity {
             try {
                 var collection = GetCollection<TEntity> ();
-                foreach (var entity in entities) {
-                    await collection.ReplaceOneAsync (r => r.Id.Equals (entity.Id), entity, new ReplaceOptions () { IsUpsert = true }, cancellationToken);
+
+                if (recordOption == RecordOption.Insert) {
+                    await collection.InsertManyAsync (entities, new InsertManyOptions () { IsOrdered = true }, cancellationToken);
                 }
+                #region RecordOption.Update
+                //else if (recordOption == RecordOption.Update)
+                //{
+
+                //        var updates = new List<WriteModel<TEntity>>();
+                //        var filterBuilder = Builders<TEntity>.Filter;
+
+                //        foreach (var doc in entities)
+                //        {
+                //            var filter = filterBuilder.Where(x => x.Id == doc.Id);
+                //            updates.Add(new ReplaceOneModel<TEntity>(filter, doc));
+                //        }
+
+                //        await collection.BulkWriteAsync(updates, cancellationToken: cancellationToken);
+                //} 
+                #endregion
+                else {
+                    var bulkOps = entities
+                        .Select (entity =>
+                            new ReplaceOneModel<TEntity> (Builders<TEntity>.Filter.Where (x => x.Id == entity.Id), entity) { IsUpsert = true })
+                        .Cast<WriteModel<TEntity>> ()
+                        .ToList ();
+                    await collection.BulkWriteAsync (bulkOps, cancellationToken : cancellationToken);
+                }
+            } catch (TimeoutException ex) {
+                _logger?.LogError ($"Timeout Exception in SaveAsync method. Source: {ex.Source}");
+            } catch (MongoAuthenticationException ex) {
+                _logger?.LogError ($"Mongo Authentication Exception in SaveAsync method. Source: {ex.Source}");
             } catch (Exception ex) {
-                throw ex;
+                _logger?.LogError (ex, $"These records cannot be saved");
             }
         }
 
@@ -88,14 +121,30 @@ namespace Planet.MongoDbConsoleAppSample.Context {
         public async Task SaveAllAsync<TEntity> (IEnumerable<TEntity> entities, InsertManyOptions insertManyOptions = null, CancellationToken cancellationToken = default) where TEntity : Entity {
             try {
                 await GetCollection<TEntity> ().InsertManyAsync (entities, insertManyOptions, cancellationToken);
+            } catch (TimeoutException ex) {
+                _logger?.LogError ($"Timeout Exception in SaveAsync method. Source: {ex.Source}");
+            } catch (MongoAuthenticationException ex) {
+                _logger?.LogError ($"Mongo Authentication Exception in SaveAsync method. Source: {ex.Source}");
             } catch (Exception ex) {
-                throw ex;
+                _logger?.LogError (ex, $"These records cannot be saved");
             }
         }
 
-        public IMongoQueryable<TEntity> AllQueryable<TEntity> (AggregateOptions options = null, CancellationToken cancellationToken = default) where TEntity : Entity {
-            cancellationToken.ThrowIfCancellationRequested ();
-            return GetCollection<TEntity> ().AsQueryable (options);
+        public new IMongoQueryable<TEntity> AllQueryable<TEntity> (AggregateOptions options = null, CancellationToken cancellationToken = default) where TEntity : Entity {
+            try {
+                cancellationToken.ThrowIfCancellationRequested ();
+
+                return base.AllQueryable<TEntity> (options, cancellationToken);
+            } catch (TimeoutException ex) {
+                _logger?.LogError ($"Timeout Exception in AllQueryable method. Source: {ex.Source}");
+                return default;
+            } catch (MongoAuthenticationException ex) {
+                _logger?.LogError ($"Mongo Authentication Exception in AllQueryable method. Source: {ex.Source}");
+                return default;
+            } catch (Exception ex) {
+                _logger?.LogError (ex, $"Something is wrong in AllQueryable");
+                return new EmptyMongoQueryable<TEntity> ();
+            }
         }
 
         public async Task<IEnumerable<TEntity>> GetAllAsync<TEntity> (AggregateOptions options = null, CancellationToken cancellationToken = default) where TEntity : Entity {
@@ -166,12 +215,18 @@ namespace Planet.MongoDbConsoleAppSample.Context {
             return result != null;
         }
 
-        public Task<int> SaveChangesAsync (CancellationToken cancellationToken = default) {
-            throw new NotImplementedException ();
+        public async Task<int> CountAsync<TEntity> (AggregateOptions options = null, Expression<Func<TEntity, bool>> prediction = null, CancellationToken cancellationToken = default) where TEntity : Entity {
+            if (prediction == null)
+                return await AllQueryable<TEntity> (options, cancellationToken).CountAsync (cancellationToken);
+            return await AllQueryable<TEntity> (options, cancellationToken).CountAsync (prediction, cancellationToken);
         }
 
-        public Task CommitEntitiesAsync<TEntity> (List<TEntity> entities, CancellationToken cancellationToken = default) where TEntity : Entity {
-            throw new NotImplementedException ();
+        public async Task<bool> AnyAsync<TEntity> (AggregateOptions options = null, Expression<Func<TEntity, bool>> prediction = null, CancellationToken cancellationToken = default) where TEntity : Entity {
+
+            if (prediction == null) {
+                return await AllQueryable<TEntity> (options, cancellationToken).AnyAsync (cancellationToken);
+            }
+            return await AllQueryable<TEntity> (options, cancellationToken).AnyAsync (prediction, cancellationToken);
         }
 
         public void Dispose () {

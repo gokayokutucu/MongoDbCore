@@ -53,7 +53,6 @@
 /Users/gokayokutucu/Projects/PlayGround/MongoDbContext/Planet.MongoDbConsoleAppSample/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Primitives.dll
 /Users/gokayokutucu/Projects/PlayGround/MongoDbContext/Planet.MongoDbConsoleAppSample/bin/Debug/netcoreapp3.1/System.Diagnostics.EventLog.dll
 /Users/gokayokutucu/Projects/PlayGround/MongoDbContext/Planet.MongoDbConsoleAppSample/bin/Debug/netcoreapp3.1/runtimes/win/lib/netcoreapp2.0/System.Diagnostics.EventLog.dll
-/Users/gokayokutucu/Projects/PlayGround/MongoDbCore/Planet.MongoDbConsoleAppSample/bin/Debug/netcoreapp3.1/Planet.MongoDbConsoleAppSample
 /Users/gokayokutucu/Projects/PlayGround/MongoDbCore/Planet.MongoDbConsoleAppSample/bin/Debug/netcoreapp3.1/Planet.MongoDbConsoleAppSample.deps.json
 /Users/gokayokutucu/Projects/PlayGround/MongoDbCore/Planet.MongoDbConsoleAppSample/bin/Debug/netcoreapp3.1/Planet.MongoDbConsoleAppSample.runtimeconfig.json
 /Users/gokayokutucu/Projects/PlayGround/MongoDbCore/Planet.MongoDbConsoleAppSample/bin/Debug/netcoreapp3.1/Planet.MongoDbConsoleAppSample.runtimeconfig.dev.json
@@ -108,3 +107,5 @@
 /Users/gokayokutucu/Projects/PlayGround/MongoDbCore/Planet.MongoDbConsoleAppSample/obj/Debug/netcoreapp3.1/Planet.MongoDbConsoleAppSample.csproj.CopyComplete
 /Users/gokayokutucu/Projects/PlayGround/MongoDbCore/Planet.MongoDbConsoleAppSample/obj/Debug/netcoreapp3.1/Planet.MongoDbConsoleAppSample.dll
 /Users/gokayokutucu/Projects/PlayGround/MongoDbCore/Planet.MongoDbConsoleAppSample/obj/Debug/netcoreapp3.1/Planet.MongoDbConsoleAppSample.pdb
+/Users/gokayokutucu/Projects/PlayGround/MongoDbCore/Planet.MongoDbConsoleAppSample/obj/Debug/netcoreapp3.1/Planet.MongoDbConsoleAppSample.csproj.CoreCompileInputs.cache
+/Users/gokayokutucu/Projects/PlayGround/MongoDbCore/Planet.MongoDbConsoleAppSample/obj/Debug/netcoreapp3.1/Planet.MongoDbConsoleAppSample.genruntimeconfig.cache

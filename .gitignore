@@ -1,5 +1,7 @@
 # ignore nupkg and nuspec
 *.nupkg
 *.nuspec
-Planet.MongoDbCore/bin/Debug/Planet.MongoDbCore.1.0.0.nupkg
-Planet.MongoDbCore/obj/Debug/Planet.MongoDbCore.1.0.0.nuspec
+Planet.MongoDbCore/bin
+Planet.MongoDbCore/obj
+Planet.MongoDbCore/bin/Debug/*.nupkg
+Planet.MongoDbCore/obj/Debug/*.nuspec

@@ -3,6 +3,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using MediatR;
+using MongoDB.Driver;
+using MongoDB.Driver.Linq;
 using Planet.MongoDbConsoleAppSample.Application.Bookmarks.ViewModels;
 using Planet.MongoDbConsoleAppSample.Repositories;
 
@@ -17,10 +19,11 @@ namespace Planet.MongoDbConsoleAppSample.Application.Bookmarks.Queries {
         }
 
         public async Task<BookmarkListViewModel> Handle (GetBookmarkListQuery request, CancellationToken cancellationToken) {
-            var bookmarks = await _bookmarkRepository.GetAllAsync (cancellationToken);
+            var bookmarkQueryable = _bookmarkRepository.AllQueryable ().Where (a => !a.IsDeleted);
+            var bookmarkList = await bookmarkQueryable.ToListAsync (cancellationToken);
 
             return new BookmarkListViewModel {
-                Bookmarks = _mapper.Map<IList<BookmarkLookupModel>> (bookmarks)
+                Bookmarks = _mapper.Map<IList<BookmarkLookupModel>> (bookmarkList)
             };
         }
     }

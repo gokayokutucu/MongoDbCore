@@ -23,7 +23,7 @@ namespace Planet.MongoDbConsoleAppSample.Repositories {
         }
         public IMongoQueryable<Image> AllQueryable (AggregateOptions options = null, CancellationToken cancellationToken = default) {
             cancellationToken.ThrowIfCancellationRequested ();
-            return _context.GetCollection<Image> ().AsQueryable (options);
+            return _context.AllQueryable<Image> (options, cancellationToken);
         }
 
         public Task<int> Count (Expression<Func<Image, bool>> prediction = null) {

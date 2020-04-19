@@ -13,6 +13,5 @@ namespace Planet.MongoDbConsoleAppSample.Repositories {
         IMongoQueryable<Bookmark> AllQueryable (AggregateOptions options = null, CancellationToken cancellationToken = default);
         Task<IEnumerable<Bookmark>> GetAllByField (string fieldName, string fieldValue, CancellationToken cancellationToken = default);
         Task<IEnumerable<Bookmark>> GetAllBetween (int startingFrom, int count);
-        Task<int> Count (Expression<Func<Bookmark, bool>> prediction = null);
     }
 }
